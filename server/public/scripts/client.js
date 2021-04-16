@@ -6,7 +6,7 @@ function onReady() {
 }
 
 function buttonVal() {
-  let buttonIn = $(this).attr('id');
+  let buttonIn = {value: $(this).attr('id')};
   console.log('Receiving new input...', buttonIn);
   $.ajax({
     method: 'POST',
