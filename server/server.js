@@ -4,6 +4,14 @@ const port = 5000;
 
 app.use(express.static('./server/public'));
 
+app.post('/input-output', (req, res) => {
+  
+  console.log('Request for input...', input)
+
+})
+
+
+
 app.listen(port, () => {
   console.log('listening on port', port + '...');
 })
