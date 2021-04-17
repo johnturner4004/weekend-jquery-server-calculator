@@ -35,7 +35,7 @@ function updateDisplay() {
       value: firstNumber
     };
     console.log('updateDisplay', outputArray);
-  } else if (equal) {
+  } else if (total === '') {
     outputArray = {
       value: secondNumber
     };
@@ -47,7 +47,7 @@ function updateDisplay() {
 }
 
 function calculate(executeTask) {
-  switch(executeTask) {
+  switch (executeTask) {
     case 'percent':
       if (secondNumber !== '') {
         secondNumber = secondNumber / 100;
@@ -58,9 +58,37 @@ function calculate(executeTask) {
       }
       updateDisplay();
       break;
+    case 'equal':
+      console.log('equql in');
+
+      if (firstNumber !== '' && secondNumber !== '' && functionSelector !== '') {
+        firstNumber = Number(firstNumber);
+        console.log(firstNumber);
+
+        secondNumber = Number(secondNumber);
+        console.log(secondNumber);
+
+        if (functionSelector === 'add') {
+          total = firstNumber + secondNumber;
+        } else if (functionSelector === 'subtract') {
+          total = firstNumber - secondNumber;
+        } else if (functionSelector === 'multiply') {
+          total = firstNumber * secondNumber;
+        } else if (functionSelector === 'divide') {
+          total = firstNumber / secondNumber;
+        }
+        console.log(total);
+        
+        total = total + '';
+        console.log('Total after equal', total);
+        updateDisplay();
+        break;
+      
+      }
+
   }
 
-  
+
 }
 
 
@@ -81,6 +109,7 @@ app.post('/basic', (req, res) => {
   let functionBut = req.body;
   console.log('Request for input...', functionBut);
   functionSelector = functionBut.operator;
+  updateDisplay();
   res.sendStatus(201);
 })
 
