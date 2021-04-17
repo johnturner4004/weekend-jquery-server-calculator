@@ -85,10 +85,19 @@ function calculate(executeTask) {
           secondNumber = '';
         } else if (functionSelector) {
           functionSelector !== '';
-        } else (
+        } else {
           firstNumber = ''
-          )
-          updateDisplay();
+        }
+        updateDisplay();
+        break;
+      case 'all-clear':
+        firstNumber = '';
+        secondNumber = '';
+        functionSelector = '';
+        total = '';
+        updateDisplay();
+        break;››
+
   }
 }
 

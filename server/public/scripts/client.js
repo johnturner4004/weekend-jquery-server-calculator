@@ -2,10 +2,12 @@ $(document).ready(onReady);
 
 function onReady() {
   console.log('JQ');
-  $('.numberButton').on('click', buttonVal)
-  $('.basicFunction').on('click', basicMath)
-  $('.executeButton').on('click', execute)
+  $('.numberButton').on('click', buttonVal);
+  $('.basicFunction').on('click', basicMath);
+  $('.executeButton').on('click', execute);
+  render(displayString);
 }
+let displayString = {value: ''};
 
 function buttonVal() {
   let buttonIn = {value: $(this).attr('id')};
@@ -80,6 +82,8 @@ function execute() {
 }
 
 function render(displayString) {
+  $('.screen').empty();
+  $('.screen').append(displayString.value);
   console.log(displayString);
   
 }

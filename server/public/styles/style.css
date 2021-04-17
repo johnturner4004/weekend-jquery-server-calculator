@@ -1,4 +1,43 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: antiquewhite;
+}
+
+header {
+  padding: 2vw;
+  text-align: center;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.buttons {
+  font-size: 0;
+}
+
+.screen {
+  width: 20vw;
+  height: 10vh;
+  background-color: black;
+  color: lime;
+}
+
+button {
+  width: 5vw;
+  height: 5vw;
+  margin: 0.25vw;
+  border-radius: 30% 30% 30% 30%/10% 10% 10% 10%;
 }
 /*# sourceMappingURL=style.css.map */
