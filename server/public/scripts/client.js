@@ -52,7 +52,8 @@ function basicMath() {
     data: functionObject
   })
   .then(function (response) {
-console.log('Response from server...', response);
+    console.log('Response from server...', response);
+    display();
   })
   .catch(function (error) {
     console.log('Error from server...', error);
@@ -69,7 +70,8 @@ function execute() {
     data: executeObject
   })
   .then(function (response) {
-console.log('Response from server...', response);
+    console.log('Response from server...', response);
+    display();
   })
   .catch(function (error) {
     console.log('Error from server...', error);

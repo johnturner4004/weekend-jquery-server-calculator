@@ -46,7 +46,20 @@ function updateDisplay() {
   }
 }
 
-function calculate() {
+function calculate(executeTask) {
+  switch(executeTask) {
+    case 'percent':
+      if (secondNumber !== '') {
+        secondNumber = secondNumber / 100;
+        secondNumber = secondNumber + '';
+      } else {
+        firstNumber = firstNumber / 100;
+        firstNumber = firstNumber + '';
+      }
+      updateDisplay();
+      break;
+  }
+
   
 }
 
