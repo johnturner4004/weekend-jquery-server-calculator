@@ -60,14 +60,11 @@ function calculate(executeTask) {
       break;
     case 'equal':
       console.log('equql in');
-
       if (firstNumber !== '' && secondNumber !== '' && functionSelector !== '') {
         firstNumber = Number(firstNumber);
         console.log(firstNumber);
-
         secondNumber = Number(secondNumber);
         console.log(secondNumber);
-
         if (functionSelector === 'add') {
           total = firstNumber + secondNumber;
         } else if (functionSelector === 'subtract') {
@@ -78,17 +75,21 @@ function calculate(executeTask) {
           total = firstNumber / secondNumber;
         }
         console.log(total);
-        
         total = total + '';
         console.log('Total after equal', total);
         updateDisplay();
         break;
-      
       }
-
+      case 'clear':
+        if (secondNumber !== '') {
+          secondNumber = '';
+        } else if (functionSelector) {
+          functionSelector !== '';
+        } else (
+          firstNumber = ''
+          )
+          updateDisplay();
   }
-
-
 }
 
 
