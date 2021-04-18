@@ -27,9 +27,27 @@ main {
   font-size: 0;
 }
 
+.calculator {
+  background-color: red;
+  padding: 2vw;
+  border-radius: 30% 30% 30% 30%/10% 10% 5% 5%;
+  width: 27vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .screen {
   width: 20vw;
   height: 10vh;
+  margin: 1vw;
   background-color: black;
   color: lime;
 }
@@ -39,5 +57,7 @@ button {
   height: 5vw;
   margin: 0.25vw;
   border-radius: 30% 30% 30% 30%/10% 10% 10% 10%;
+  font-size: 4vh;
+  padding: 0;
 }
 /*# sourceMappingURL=style.css.map */

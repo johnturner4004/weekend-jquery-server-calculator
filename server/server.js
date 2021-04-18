@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 let outputArray = [];
+let historyArray = [];
 let firstNumber = '';
 let secondNumber = '';
 let total = '';
@@ -18,6 +19,12 @@ let equal = false;
 
 //this turns the letter strings to number strings
 function buttonToNumString(stringIn) {
+  if (total !== '') {
+    firstNumber = '';
+    secondNumber = '';
+    total = '';
+    functionSelector = '';
+  }
   let stringTrans = buttonTranslate(stringIn);
   console.log('buttonToString', stringTrans);
   if (functionSelector === '') {
@@ -66,47 +73,69 @@ function calculate(executeTask) {
         secondNumber = Number(secondNumber);
         console.log(secondNumber);
         if (functionSelector === 'add') {
+          functionSelector = '+';
           total = firstNumber + secondNumber;
         } else if (functionSelector === 'subtract') {
+          functionSelector = '-';
           total = firstNumber - secondNumber;
         } else if (functionSelector === 'multiply') {
+          functionSelector = '*';
           total = firstNumber * secondNumber;
         } else if (functionSelector === 'divide') {
+          functionSelector = '/';
           total = firstNumber / secondNumber;
         }
         console.log(total);
         total = total + '';
         console.log('Total after equal', total);
+        // updateHistory();
         updateDisplay();
         break;
       }
-      case 'clear':
-        if (secondNumber !== '') {
-          secondNumber = '';
-        } else if (functionSelector) {
-          functionSelector !== '';
-        } else {
-          firstNumber = ''
-        }
-        updateDisplay();
-        break;
-      case 'all-clear':
-        firstNumber = '';
+    case 'clear':
+      if (secondNumber !== '') {
         secondNumber = '';
-        functionSelector = '';
-        total = '';
-        updateDisplay();
-        break;››
-
+      } else if (functionSelector) {
+        functionSelector !== '';
+      } else {
+        firstNumber = ''
+      }
+      updateDisplay();
+      break;
+    case 'all-clear':
+      firstNumber = '';
+      secondNumber = '';
+      functionSelector = '';
+      total = '';
+      updateDisplay();
+      break;
+    default:
+      alert('Oops, you broke me!');
   }
 }
 
-
+// function updateHistory() { 
+// historyArray.push({
+//   firstNum: firstNumber,
+//   secondNum: secondNumber,
+//   function: functionSelector,
+//   total: total
+// }
 
 app.get('/buttonIO', (req, res) => {
   console.log('request for output...', outputArray);
   res.send(outputArray);
 })
+
+// app.post('/history', (req, res) => {
+//   console.log('not sure if i need this', req);
+//   res.send(201);
+// })
+
+// app.get('/history', (req, res) => {
+//   console.log('request for output...', historyArray);
+//   res.send(historyArray);
+// })
 
 app.post('/buttonIO', (req, res) => {
   let input = req.body;

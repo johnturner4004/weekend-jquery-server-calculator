@@ -19,18 +19,32 @@ main {
   font-size: 0;
 }
 
+.calculator {
+  background-color: red;
+  padding: 2vw;
+  border-radius: 30% 30% 30% 30%/10% 10% 5% 5%;
+  width: 27vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
 
 .screen {
   width: 20vw;
   height: 10vh;
+  margin: 1vw;
   background-color: black;
   color: lime;
 }
+
 
 button {
   width: 5vw;
   height: 5vw;
   margin: 0.25vw;
   border-radius: 30% 30% 30% 30%/10% 10% 10% 10%;
+  font-size: 4vh;
+  padding: 0;
 }
+
