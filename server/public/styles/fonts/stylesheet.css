@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'LED Sled Straight';
+    src: url('LEDSledStraight.woff2') format('woff2'),
+        url('LEDSledStraight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NinePin';
+    src: url('NinePin.woff2') format('woff2'),
+        url('NinePin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

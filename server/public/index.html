@@ -7,47 +7,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/style.css">
   <script src="./scripts/jquery-3.6.0.min.js"></script>
+  <script src="./scripts/jquery.novacancy.min.js"></script>
   <script src="./scripts/client.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
   <title>Calculator</title>
 </head>
 
 <body>
   <header>
-    <h1>John's Epic Calculator !!!</h1>
+    <div class="board">
+      <p class="firstCol">John's <span class="secondCol">Epic</span> Calculator !!!</p>
+    </div>
   </header>
   <main>
     <section class="calculator">
-      <div class="screen"></div>
+      <div class="screen">
+        <div id="smallNum"></div>
+        <div id="largeNum"></div>
+      </div>
       <div class="buttons">
         <div class="buttonRow">
-          <button class=executeButton id="all-clear">AC</button>
-          <button class=executeButton id="clear">C</button>
-          <button class=executeButton id="percent">&#37;</button>
-          <button class=basicFunction id="divide">&#247;</button>
-        </div>
-        <div id="buttonRow">
-          <button class=numberButton id="seven">&#9318;</button>
-          <button class=numberButton id="eight">&#9319;</button>
-          <button class=numberButton id="nine">&#9320;</button>
-          <button class=basicFunction id="subtract">&#8722;</button>
+          <button class="executeButton" id="all-clear">AC</button>
+          <button class="executeButton" id="clear">C</button>
+          <button class="executeButton" id="percent">&#37;</button>
+          <button class="basicFunction" id="divide">&#247;</button>
         </div>
         <div class="buttonRow">
-          <button class=numberButton id="four">&#9315;</button>
-          <button class=numberButton id="five">&#9316;</button>
-          <button class=numberButton id="six">&#9317;</button>
-          <button class=basicFunction id="multiply">&#215;</button>
+          <button class="numberButton" id="seven">&#9318;</button>
+          <button class="numberButton" id="eight">&#9319;</button>
+          <button class="numberButton" id="nine">&#9320;</button>
+          <button class="basicFunction" id="subtract">&#8722;</button>
         </div>
-        <div id="buttonRow">
-          <button class=numberButton id="one">&#9312;</button>
-          <button class=numberButton id="two">&#9313;</button>
-          <button class=numberButton id="three">&#9314;</button>
-          <button class=basicFunction id="add">&#43;</button>
+        <div class="buttonRow">
+          <button class="numberButton" id="four">&#9315;</button>
+          <button class="numberButton" id="five">&#9316;</button>
+          <button class="numberButton" id="six">&#9317;</button>
+          <button class="basicFunction" id="multiply">&#215;</button>
         </div>
-        <div id="buttonRow">
-          <button class=numberButton id="zero">&#9450;</button>
-          <button class=numberButton id="decimal">&#8901;</button>
-          <button class=executeButton id="equal">&#61;</button>
-          <button id="history">&#9660;</button>
+        <div class="buttonRow">
+          <button class="numberButton" id="one">&#9312;</button>
+          <button class="numberButton" id="two">&#9313;</button>
+          <button class="numberButton" id="three">&#9314;</button>
+          <button class="basicFunction" id="add">&#43;</button>
+        </div>
+        <div class="buttonRow">
+          <button class="numberButton" id="zero">&#9450;</button>
+          <button class="numberButton" id="decimal">&#8901;</button>
+          <button class="executeButton" id="equal">&#61;</button>
+          <button class="executeButton" id="history">&#9660;</button>
+        </div>
+        <div class="buttonRow">
+          <!-- <button class="executeButton" id="CLEAR-HISTORY">Clear History</button> -->
         </div>
       </div>
     </section>

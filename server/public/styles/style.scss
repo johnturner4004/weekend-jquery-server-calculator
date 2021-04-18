@@ -1,12 +1,35 @@
-@import 'config';
+@import "config";
 
 body {
-  background-color: antiquewhite;
+  background-image: linear-gradient($secondary-color 20%, $primary-color 25%);
 }
 
-header {
-  padding: 2vw;
+// header {
+//   padding: 2vw;
+//   text-align: center;
+//   font-family: "LED Sled Straight";
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+.board {
   text-align: center;
+  border: 1px solid rgb(0, 211, 0);
+  border-radius: 4px;
+  width: 98%;
+  margin: 3vh 1vw 5vh 1vw;
+  padding: 20px;
+  background-color: #000;
+  position: relative;
+}
+
+.board > * {
+  font-size: 3vw;
+  font-family: "Monoton", cursive;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
 }
 
 main {
@@ -14,30 +37,58 @@ main {
   justify-content: center;
 }
 
-
 .buttons {
   font-size: 0;
 }
 
 .calculator {
-  background-color: red;
+  background-color: $calculator-color;
   padding: 2vw;
   border-radius: 30% 30% 30% 30%/10% 10% 5% 5%;
   width: 27vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  box-shadow: 12px 12px 16px 0 rgba(255, 255, 255, 0.3) inset,
+    -8px -8px 12px 0 rgba(0, 0, 0, 0.25) inset;
 }
-
 
 .screen {
   width: 20vw;
-  height: 10vh;
+  height: 14vh;
   margin: 1vw;
-  background-color: black;
-  color: lime;
+  background-color: $calculator-screen;
+  color: $calculator-text;
+  box-shadow: inset 5px 5px 15px 5px #000000;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
+#smallNum {
+  padding: 3vh 2vw 3vh 2vw;
+  height: 4vh;
+  font-size: 3vh;
+  font-family: "NinePin";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+#largeNum {
+  height: 8vh;
+  font-size: 7vh;
+  text-align: right;
+  font-family: "LED Sled Straight";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.buttonRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
 button {
   width: 5vw;
@@ -48,3 +99,9 @@ button {
   padding: 0;
 }
 
+#CLEAR-HISTORY {
+  height: 3vh;
+  font-size: 2vh;
+  width: 10vw;
+  justify-self: center;
+}

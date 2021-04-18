@@ -15,7 +15,7 @@ let firstNumber = '';
 let secondNumber = '';
 let total = '';
 let functionSelector = '';
-let equal = false;
+let historyIndex = 0;
 
 //this turns the letter strings to number strings
 function buttonToNumString(stringIn) {
@@ -39,16 +39,25 @@ function buttonToNumString(stringIn) {
 function updateDisplay() {
   if (functionSelector === '') {
     outputArray = {
-      value: firstNumber
+      firstNum: firstNumber,
+      secondNum: '',
+      function: '',
+      total: ''
     };
     console.log('updateDisplay', outputArray);
   } else if (total === '') {
     outputArray = {
-      value: secondNumber
+      firstNum: firstNumber,
+      secondNum: secondNumber,
+      function: functionSelector,
+      total: ''
     };
   } else {
     outputArray = {
-      value: total
+      firstNum: firstNumber,
+      secondNum: secondNumber,
+      function: functionSelector,
+      total: total
     };
   }
 }
@@ -73,54 +82,72 @@ function calculate(executeTask) {
         secondNumber = Number(secondNumber);
         console.log(secondNumber);
         if (functionSelector === 'add') {
-          functionSelector = '+';
+          // functionSelector = '+';
           total = firstNumber + secondNumber;
         } else if (functionSelector === 'subtract') {
-          functionSelector = '-';
+          // functionSelector = '-';
           total = firstNumber - secondNumber;
         } else if (functionSelector === 'multiply') {
-          functionSelector = '*';
+          // functionSelector = '*';
           total = firstNumber * secondNumber;
         } else if (functionSelector === 'divide') {
-          functionSelector = '/';
+          // functionSelector = '/';
           total = firstNumber / secondNumber;
         }
         console.log(total);
         total = total + '';
         console.log('Total after equal', total);
-        // updateHistory();
+        updateHistory();
         updateDisplay();
         break;
       }
-    case 'clear':
-      if (secondNumber !== '') {
+      case 'clear':
+        if (secondNumber !== '') {
+          secondNumber = '';
+        } else if (functionSelector) {
+          functionSelector !== '';
+        } else {
+          firstNumber = ''
+        }
+        updateDisplay();
+        break;
+      case 'all-clear':
+        firstNumber = '';
         secondNumber = '';
-      } else if (functionSelector) {
-        functionSelector !== '';
+        functionSelector = '';
+        total = '';
+        updateDisplay();
+        break;
+      case 'history':
+      firstNumber = historyArray[historyIndex].firstNum;
+      secondNumber = historyArray[historyIndex].secondNum;
+      functionSelector = historyArray[historyIndex].function;
+      total = historyArray[historyIndex].total;
+      if (historyIndex < historyArray.length - 1) {
+        historyIndex++
       } else {
-        firstNumber = ''
+        historyIndex = 0;
       }
       updateDisplay();
       break;
-    case 'all-clear':
-      firstNumber = '';
-      secondNumber = '';
-      functionSelector = '';
-      total = '';
-      updateDisplay();
-      break;
-    default:
-      alert('Oops, you broke me!');
-  }
+    //   case 'CLEAR-HISTORY': //ya I found out about this after I was basically done so I kind of pitched a fir
+    //   for (let i = 0; i < historyArray.length; i++) {
+    //     historyArray.pop()
+    //   }
+    //   break;
+      default:
+        alert('Oops, you broke me!');
+      }
+    }
+    
+    function updateHistory() {
+  historyArray.push({
+    firstNum: firstNumber,
+    secondNum: secondNumber,
+    function: functionSelector,
+    total: total
+  })
 }
-
-// function updateHistory() { 
-// historyArray.push({
-//   firstNum: firstNumber,
-//   secondNum: secondNumber,
-//   function: functionSelector,
-//   total: total
-// }
 
 app.get('/buttonIO', (req, res) => {
   console.log('request for output...', outputArray);

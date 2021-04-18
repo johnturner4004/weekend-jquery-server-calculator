@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'LED Sled Straight';
+  src: url("/styles/fonts/LEDSledStraight.woff2") format("woff2"), url("/styles/fonts/LEDSledStraight.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NinePin';
+  src: url("/styles/fonts/NinePin.woff2") format("woff2"), url("/styles/fonts/NinePin.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -6,12 +22,27 @@
 }
 
 body {
-  background-color: antiquewhite;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #000), color-stop(25%, antiquewhite));
+  background-image: linear-gradient(#000 20%, antiquewhite 25%);
 }
 
-header {
-  padding: 2vw;
+.board {
   text-align: center;
+  border: 1px solid #00d300;
+  border-radius: 4px;
+  width: 98%;
+  margin: 3vh 1vw 5vh 1vw;
+  padding: 20px;
+  background-color: #000;
+  position: relative;
+}
+
+.board > * {
+  font-size: 3vw;
+  font-family: "Monoton", cursive;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
 }
 
 main {
@@ -28,7 +59,7 @@ main {
 }
 
 .calculator {
-  background-color: red;
+  background-color: #20303B;
   padding: 2vw;
   border-radius: 30% 30% 30% 30%/10% 10% 5% 5%;
   width: 27vw;
@@ -42,14 +73,53 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-shadow: 12px 12px 16px 0 rgba(255, 255, 255, 0.3) inset, -8px -8px 12px 0 rgba(0, 0, 0, 0.25) inset;
+          box-shadow: 12px 12px 16px 0 rgba(255, 255, 255, 0.3) inset, -8px -8px 12px 0 rgba(0, 0, 0, 0.25) inset;
 }
 
 .screen {
   width: 20vw;
-  height: 10vh;
+  height: 14vh;
   margin: 1vw;
-  background-color: black;
-  color: lime;
+  background-color: #598F70;
+  color: #050F0D;
+  -webkit-box-shadow: inset 5px 5px 15px 5px #000000;
+          box-shadow: inset 5px 5px 15px 5px #000000;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#smallNum {
+  padding: 3vh 2vw 3vh 2vw;
+  height: 4vh;
+  font-size: 3vh;
+  font-family: "NinePin";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+#largeNum {
+  height: 8vh;
+  font-size: 7vh;
+  text-align: right;
+  font-family: "LED Sled Straight";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.buttonRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 button {
@@ -59,5 +129,13 @@ button {
   border-radius: 30% 30% 30% 30%/10% 10% 10% 10%;
   font-size: 4vh;
   padding: 0;
+}
+
+#CLEAR-HISTORY {
+  height: 3vh;
+  font-size: 2vh;
+  width: 10vw;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 /*# sourceMappingURL=style.css.map */
