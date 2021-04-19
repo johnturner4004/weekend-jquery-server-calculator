@@ -1,16 +1,12 @@
 $(document).ready(onReady);
-// let emptyInput = ;
+
 function onReady() {
   console.log('JQ');
   $('.numberButton').on('click', buttonVal);
   $('.basicFunction').on('click', basicMath);
   $('.executeButton').on('click', execute);
-  render({
-    firstNum: '',
-    secondNum: '',
-    function: '',
-    total: ''
-  });
+  
+  //the following two functions describes the animation for the neon sign 
   $('.firstCol').novacancy({
     'reblinkProbability': 0.1,
     'blinkMin': 0.2,
@@ -27,6 +23,8 @@ function onReady() {
   });
 }
 
+//this captures the button id's and sends them to server.js to be used for the
+//functions over there
 function buttonVal() {
   historyArray = []
   let buttonIn = {
@@ -48,6 +46,8 @@ function buttonVal() {
     })
 }
 
+//this receives the output data from server.js sends it to the render function to
+//upload to the DOM
 function display() {
   $.ajax({
       method: 'GET',
@@ -64,6 +64,7 @@ function display() {
   console.log('After making server request...');
 }
 
+//this collects the operators from the DOM and sends it to server.js
 function basicMath() {
   historyArray = []
   let functionIn = $(this).attr('id');
@@ -85,6 +86,8 @@ function basicMath() {
     })
 }
 
+//this signals server.js to preform the selected operation using the previously
+//selected inputs
 function execute() {
   let executeIn = $(this).attr('id');
   let executeObject = {
@@ -105,9 +108,9 @@ function execute() {
     })
 }
 
+//this prints the output to the DOM
 let index = 0;
 let historyArray = [];
-
 function render(array) {
   let symbol;
   console.log('object to render', array);
@@ -120,7 +123,8 @@ function render(array) {
   } else if (array.function === 'divide') {
     symbol = '/';
   }
-
+  //the following if statements will convert large numbers to exponentials to prevent
+  //output from not fitting on display
   if (array.firstNum > 999999) {
     let temp = Number(array.firstNum);
     console.log('if in:', array.firstNum);
@@ -136,7 +140,7 @@ function render(array) {
     console.log('if in:', array.total);
     array.total= temp.toExponential(4);
   }
-
+  //this prints available data to the DOM in its appropriate spot.
   $('#smallNum').empty();
   $('#largeNum').empty();
   if (array.firstNum === '') {

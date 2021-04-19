@@ -1,3 +1,4 @@
+//this mobule moves the function buttonTranslate off of the server.js file
 function buttonTranslate(buttonString) {
   console.log('buttonTranslate in:', buttonString);
   let buttonNum;
@@ -41,5 +42,6 @@ function buttonTranslate(buttonString) {
   console.log('buttonTranslate out:', buttonNum);
   return buttonNum;
 }
+
 
 module.exports = buttonTranslate;
