@@ -35,44 +35,11 @@ function buttonTranslate(buttonString) {
     case 'decimal':
       buttonNum = '.';
       break;
-      // case 'add':
-      //   buttonNum = '+';
-      //   break;
-      // case 'multiply':
-      //   buttonNum = '*';
-      //   break;
-      // case 'subtract':
-      //   buttonNum = '-';
-      //   break;
-      // case 'divide':
-      //   buttonNum = '/';
-      //   break;
-      // case 'percent':
-      //   buttonNum = '%';
-      //   break;
-      // case 'equal':
-      //   buttonNum = '=';
-      //   break;
-      // case 'clear':
-      //   buttonNum = 'clear';
-      //   break;
-      // case 'all-clear':
-      //   buttonNum = 'all-clear';
-      //   break;
     default:
       buttonNum = 'ERROR'
   }
   console.log('buttonTranslate out:', buttonNum);
-  
   return buttonNum;
 }
-
-
-
-
-
-
-
-
 
 module.exports = buttonTranslate;

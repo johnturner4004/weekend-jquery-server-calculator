@@ -77,48 +77,47 @@ function calculate(executeTask) {
     case 'equal':
       console.log('equql in');
       if (firstNumber !== '' && secondNumber !== '' && functionSelector !== '') {
-        firstNumber = Number(firstNumber);
-        console.log(firstNumber);
-        secondNumber = Number(secondNumber);
-        console.log(secondNumber);
-        if (functionSelector === 'add') {
-          // functionSelector = '+';
-          total = firstNumber + secondNumber;
-        } else if (functionSelector === 'subtract') {
-          // functionSelector = '-';
-          total = firstNumber - secondNumber;
-        } else if (functionSelector === 'multiply') {
-          // functionSelector = '*';
-          total = firstNumber * secondNumber;
-        } else if (functionSelector === 'divide') {
-          // functionSelector = '/';
-          total = firstNumber / secondNumber;
-        }
-        console.log(total);
-        total = total + '';
-        console.log('Total after equal', total);
-        updateHistory();
-        updateDisplay();
-        break;
+      firstNumber = Number(firstNumber);
+      console.log(firstNumber);
+      secondNumber = Number(secondNumber);
+      console.log(secondNumber);
+      if (functionSelector === 'add') {
+        // functionSelector = '+';
+        total = firstNumber + secondNumber;
+      } else if (functionSelector === 'subtract') {
+        // functionSelector = '-';
+        total = firstNumber - secondNumber;
+      } else if (functionSelector === 'multiply') {
+        // functionSelector = '*';
+        total = firstNumber * secondNumber;
+      } else if (functionSelector === 'divide') {          // functionSelector = '/';
+        total = firstNumber / secondNumber;
       }
-      case 'clear':
-        if (secondNumber !== '') {
-          secondNumber = '';
-        } else if (functionSelector) {
-          functionSelector !== '';
-        } else {
-          firstNumber = ''
-        }
-        updateDisplay();
-        break;
-      case 'all-clear':
-        firstNumber = '';
+      console.log(total);
+      total = total + '';
+      console.log('Total after equal', total);
+      updateHistory();
+      updateDisplay();
+      break;
+    }
+    case 'clear':
+      if (secondNumber !== '') {
         secondNumber = '';
-        functionSelector = '';
-        total = '';
-        updateDisplay();
-        break;
-      case 'history':
+      } else if (functionSelector) {
+        functionSelector !== '';
+      } else {
+        firstNumber = ''
+      }
+      updateDisplay();
+      break;
+    case 'all-clear':
+      firstNumber = '';
+      secondNumber = '';
+      functionSelector = '';
+      total = '';
+      updateDisplay();
+      break;
+    case 'history':
       firstNumber = historyArray[historyIndex].firstNum;
       secondNumber = historyArray[historyIndex].secondNum;
       functionSelector = historyArray[historyIndex].function;
@@ -135,12 +134,12 @@ function calculate(executeTask) {
     //     historyArray.pop()
     //   }
     //   break;
-      default:
-        alert('Oops, you broke me!');
-      }
-    }
-    
-    function updateHistory() {
+    default:
+      alert('Oops, you broke me!');
+  }
+}
+
+function updateHistory() {
   historyArray.push({
     firstNum: firstNumber,
     secondNum: secondNumber,
@@ -153,16 +152,6 @@ app.get('/buttonIO', (req, res) => {
   console.log('request for output...', outputArray);
   res.send(outputArray);
 })
-
-// app.post('/history', (req, res) => {
-//   console.log('not sure if i need this', req);
-//   res.send(201);
-// })
-
-// app.get('/history', (req, res) => {
-//   console.log('request for output...', historyArray);
-//   res.send(historyArray);
-// })
 
 app.post('/buttonIO', (req, res) => {
   let input = req.body;

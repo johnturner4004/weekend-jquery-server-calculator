@@ -4,15 +4,6 @@ body {
   background-image: linear-gradient($secondary-color 20%, $primary-color 25%);
 }
 
-// header {
-//   padding: 2vw;
-//   text-align: center;
-//   font-family: "LED Sled Straight";
-//   font-weight: normal;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
 .board {
   text-align: center;
   border: 1px solid rgb(0, 211, 0);
@@ -93,10 +84,16 @@ main {
 button {
   width: 5vw;
   height: 5vw;
-  margin: 0.25vw;
   border-radius: 30% 30% 30% 30%/10% 10% 10% 10%;
-  font-size: 4vh;
-  padding: 0;
+  border: none;
+  background-color: #C5DCE2;
+  margin: 0 4px 10px 8px;
+  box-shadow: 0px 3px 0px 0px #222121, inset -1px -3px 10px 1px #515151;
+}
+
+button:active {
+  transform: translate(0px, 3px);
+  box-shadow: none;
 }
 
 #CLEAR-HISTORY {

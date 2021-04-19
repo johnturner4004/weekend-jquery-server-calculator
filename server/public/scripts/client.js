@@ -1,7 +1,5 @@
 $(document).ready(onReady);
-
 // let emptyInput = ;
-
 function onReady() {
   console.log('JQ');
   $('.numberButton').on('click', buttonVal);
@@ -50,7 +48,6 @@ function buttonVal() {
     })
 }
 
-
 function display() {
   $.ajax({
       method: 'GET',
@@ -65,7 +62,6 @@ function display() {
       alert('Ya maybe you should just learn to do your own math');
     })
   console.log('After making server request...');
-
 }
 
 function basicMath() {
@@ -107,54 +103,10 @@ function execute() {
       console.log('Error from server...', error);
       alert('Ya maybe you should just learn to do your own math');
     })
-
 }
-
-
 
 let index = 0;
 let historyArray = [];
-
-// function requestHistory() {
-//   $.ajax({
-//     method: 'POST',
-//     url: './history',
-//     data: 'I don\'t think I need this but it isn\'t working so I\'m trying whatever'
-//   })
-//   .then(function(response) {
-//     console.log('response from function I don\'t think I need', response);
-//     history();
-//   })
-//   .catch(function(error) {
-//     console.log('Yep, didn\'t need that', error);
-//     alert('Well that was stupid')
-
-//   })
-// }
-
-
-// function history() {
-//   $.ajax({
-//       method: 'GET',
-//       url: './history'
-//     })
-//     .then(function (response) {
-//       historyArray = response;
-//     })
-//     .catch(function(error){
-//       console.log('Error from server...', error);
-//       alert('Maybe you should just learn to do your own math');
-//     })
-//   $('.screen').empty();
-//   $('.screen').append(`
-//   <p id=inHistory>${historyArray[index].firstNum}&nbsp
-//     ${historyArray[index].function}&nbsp
-//     ${historyArray[index].secondNum}&nbsp</p>
-//     <p id=totHistory>${historyArray[index].total}</p>
-//   `)
-//   index++;
-// }
-
 
 function render(array) {
   let symbol;
@@ -184,8 +136,6 @@ function render(array) {
     console.log('if in:', array.total);
     array.total= temp.toExponential(4);
   }
-
- 
 
   $('#smallNum').empty();
   $('#largeNum').empty();
